@@ -1,4 +1,4 @@
-Repositorio sobre KNN
+**Repositorio sobre KNN**
 
 ¡Bienvenido al repositorio sobre KNN (k-Nearest Neighbors)!
 
