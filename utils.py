@@ -9,16 +9,27 @@ De: MLEspanol
 import numpy as np
 import matplotlib.pyplot as plt
 
+# dictionary para el texto del plot
+def dim2Name(argument):
+    switcher = {
+        1: "Peso del vehiculo" , 
+        2: "Peso de carga maximo",
+        3: "Tiempo de vuelo maxima",
+        4: "Rango maximo",
+        5: "Velocidad"
+    }
+    return switcher.get(argument, "NULL")
+    
 # funcion para graficar los datos
-def plot(hybrid,fix,multy):
+def plot(hybrid,fix,multy, dim1, dim2):
 
 	# graficar
-	plt.scatter(hybrid[:,1], hybrid[:,5], marker="o", c="#00B050")
-	plt.scatter(fix[:,1],fix[:,5], marker="s",c="#6B004D")
-	plt.scatter(multy[:,1],multy[:,5], marker="^", c="#D7B722")
+	plt.scatter(hybrid[:,dim1], hybrid[:,dim2], marker="o", c="#00B050")
+	plt.scatter(fix[:,dim1],fix[:,dim2], marker="s",c="#6B004D")
+	plt.scatter(multy[:,dim1],multy[:,dim2], marker="^", c="#D7B722")
 
-	plt.xlabel("Peso")
-	plt.ylabel("Velocidad")
+	plt.xlabel(dim2Name(dim1))
+	plt.ylabel(dim2Name(dim2))
 	leg=plt.legend(["Hybrid", "Fixed-Wing","Multirotor"], frameon= False, loc="lower right")
 
 # funcion para evaluar el modelo
